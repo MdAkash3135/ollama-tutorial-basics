@@ -28,6 +28,8 @@ try:
     response = ollama.generate(model=model, prompt=prompt)
     generated_text = response.get("response", "")
     print(generated_text)
+    with open(output_file, "w") as f:
+        f.write(generated_text.strip())
 except Exception as e:
     print("an error pccured", str(e))
 
